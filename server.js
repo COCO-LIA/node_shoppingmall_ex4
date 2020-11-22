@@ -13,8 +13,8 @@ const app = express()
 const chnRoute = require('./route/chinese')
 const engRoute = require('./route/english')
 
-app.use("/", chnRoute)
-app.use("/", engRoute)
+app.use("/chn", chnRoute)
+app.use("/eng", engRoute)
 
 
 const port = 4000
