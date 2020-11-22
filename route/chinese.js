@@ -4,6 +4,7 @@ const router = express.Router()
 
 // chinese 불러오는 API
 router.get("/zhongyu", (req, res) => {
+
     res.json({
         message: "중국어 목록"
     })
@@ -11,8 +12,17 @@ router.get("/zhongyu", (req, res) => {
 
 //chinese 등록하는 API
 router.post("/", (req, res) =>{
+
+    //사용자 입력값 설정
+    const chineseInfo = {
+        character: req.body.chnch,
+        pingyin: req.body.chnpy,
+        means: req.body.chnmn
+    }
+
     res.json({
-        message: "중국어 등록 "
+        message: "중국어 등록 ",
+        chinese: chineseInfo
     })
 })
 
