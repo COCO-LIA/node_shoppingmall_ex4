@@ -1,15 +1,18 @@
 const express = require("express")
-
 const bodyParser = require('body-parser')
+
+//1
+const mongoose = require('mongoose')
 
 const app = express()
 
-//req res test
-// app.use((req, res) =>{
-//     res.json({
-//         message: "서버 시작"
-//     })
-// })
+//DB connect
+const dbAddress = "mongodb+srv://admin:qwer@cluster0.huxry.mongodb.net/nodeshoppingmall4?retryWrites=true&w=majority"
+
+mongoose
+    .connect(dbAddress)
+    .then(() => console.log("DB 연결 성공 "))
+    .catch(err => console.log("++++++++", err.message))
 
 
 const chnRoute = require('./route/chinese')
