@@ -12,7 +12,18 @@ router.get("/", (req, res) => {
             res.json({
                 msg: " 중국상품 목록 불러오기됨 ",
                 count: docs.length,
-                list: docs
+                list: docs.map(doc => {
+                    return{
+                        id: doc._id,
+                        character: doc.character,
+                        pingyin:doc.pingyin,
+                        means:doc.means,
+                        request: {
+                            type: 'GET',
+                            url: "http://localhost:4000/chn/" + doc._id
+                        }
+                    }
+                })
             })
         })
         .catch(err => {
@@ -35,7 +46,16 @@ router.get("/:chineseId", (req, res) => {
         .then(item => {
             res.json({
                 msg: "중국 상품 상세보기 " + item._id,
-                list: item
+                list: {
+                    id: item._id,
+                    character: item.character,
+                    pingyin:item.pingyin,
+                    means:item.means,
+                    request: {
+                        type: 'GET',
+                        url: "http://localhost:4000/chn"
+                    }
+                }
             })
         })
         .catch(err => {
@@ -73,7 +93,16 @@ router.post("/", (req, res) => {
         .then(item => {
             res.json({
                 msg: " 저장 성공 ",
-                chineseInfo: item
+                chineseInfo: {
+                    id: item._id,
+                    character: item.character,
+                    pingyin:item.pingyin,
+                    means:item.means,
+                    request: {
+                        type: 'GET',
+                        url: "http://localhost:4000/chn/" + item._id
+                    }
+                }
             })
         })
         .catch(err => {
@@ -103,9 +132,14 @@ router.patch("/:chineseId", (req, res) =>{
         .findByIdAndUpdate(req.params.chineseId, { $set: updateOps})
         .then(() => {
             res.json({
-                msg: "chn 수정완료 " + req.params.chineseId
+                msg: "chn 수정완료 " + req.params.chineseId,
+                request:{
+                type: 'GET',
+                url: "http://localhost:4000/chn/"+ req.params.chineseId
+                }
             })
         })
+
         .catch(err => {
             res.json({
                 msg: err.message
@@ -118,15 +152,20 @@ router.delete("/", (req, res) =>{
     // res.json({
     //     message: "중국어 삭제"
     // })
-chineseModel
-    .deleteMany()
-    .then(() => {
-        res.json({
-            msg: "deleted All"
+    chineseModel
+        .deleteMany()
+        .then(() => {
+            res.json({
+            msg: "deleted All",
+                request: {
+                type: 'GET',
+                    url: "http://localhost:4000/chn"
+
+                }
         })
     })
-    .catch(err => {
-        res.json({
+        .catch(err => {
+            res.json({
             msg: err.message
         })
     })
@@ -139,7 +178,11 @@ router.delete("/:chineseId", (req, res) =>{
         .findByIdAndDelete(req.params.chineseId)
         .then(() => {
             res.json({
-                msg: "deleted one"
+                msg: "deleted one",
+                request:{
+                    type: 'GET',
+                    url: "http://localhost:4000/chn"
+                }
             })
         })
         .catch(err => {
