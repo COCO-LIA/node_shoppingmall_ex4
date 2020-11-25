@@ -6,9 +6,25 @@ const chineseModel = require('../model/chinese')
 // chinese 불러오는 API
 router.get("/zhongyu", (req, res) => {
 
-    res.json({
-        message: "중국어 목록"
-    })
+    chineseModel
+        .find()
+        .then(docs => {
+            res.json({
+                msg: " 중국상품 목록 불러오기됨 ",
+                count: docs.length,
+                list: docs
+            })
+        })
+        .catch(err => {
+            res.json({
+                msg: err.message
+            })
+        })
+
+    // res.json({
+    //     message: "중국어 목록"
+    // })
+
 })
 
 //chinese 등록하는 API
