@@ -87,10 +87,30 @@ router.post("/", (req, res) => {
 
 
 //chinese 수정하는 API
-router.patch("/", (req, res) =>{
-    res.json({
-        message : "중국어 수정"
-    })
+router.patch("/:chineseId", (req, res) =>{
+    // res.json({
+    //     message : "중국어 수정"
+    // })
+
+    //수정할 내용을 정의
+    const updateOps = {}
+    for (const ops of req.body) {
+        updateOps[ops.propName] = ops.value
+    }
+
+
+    chineseModel
+        .findByIdAndUpdate(req.params.chineseId, { $set: updateOps})
+        .then(() => {
+            res.json({
+                msg: "chn 수정완료 " + req.params.chineseId
+            })
+        })
+        .catch(err => {
+            res.json({
+                msg: err.message
+            })
+        })
 })
 
 //chinese 전체 삭제하는 API
