@@ -4,7 +4,7 @@ const chineseModel = require('../model/chinese')
 
 
 // chinese 불러오는 API
-router.get("/zhongyu", (req, res) => {
+router.get("/", (req, res) => {
 
     chineseModel
         .find()
@@ -93,13 +93,40 @@ router.patch("/", (req, res) =>{
     })
 })
 
-//chinese 삭제하는 API
+//chinese 전체 삭제하는 API
 router.delete("/", (req, res) =>{
     // res.json({
     //     message: "중국어 삭제"
     // })
-    
+chineseModel
+    .deleteMany()
+    .then(() => {
+        res.json({
+            msg: "deleted All"
+        })
+    })
+    .catch(err => {
+        res.json({
+            msg: err.message
+        })
+    })
 
+})
+
+//  부분삭제 API
+router.delete("/:chineseId", (req, res) =>{
+    chineseModel
+        .findByIdAndDelete(req.params.chineseId)
+        .then(() => {
+            res.json({
+                msg: "deleted one"
+            })
+        })
+        .catch(err => {
+            res.json({
+                msg: err.message
+            })
+        })
 })
 
 
