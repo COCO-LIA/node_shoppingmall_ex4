@@ -68,11 +68,12 @@ router.post("/", (req, res) => {
 
     })
 
-    chinestInfo
+    chineseInfo
         .save()
         .then(item => {
             res.json({
-                msg: " 저장 성공 "
+                msg: " 저장 성공 ",
+                chineseInfo: item
             })
         })
         .catch(err => {
@@ -94,9 +95,11 @@ router.patch("/", (req, res) =>{
 
 //chinese 삭제하는 API
 router.delete("/", (req, res) =>{
-    res.json({
-        message: "중국어 삭제"
-    })
+    // res.json({
+    //     message: "중국어 삭제"
+    // })
+    
+
 })
 
 
