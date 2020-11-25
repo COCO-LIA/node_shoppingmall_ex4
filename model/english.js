@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
 
-const productSchema4 = mongoose.Schema({
-    name : String,
-    price : Number,
-    category: String
+const englishSchema = mongoose.Schema({
+    character : String,
+    pingyin : String,
+    means: String
 })
 
-module.exports = mongoose.model("product4", productSchema4)
+module.exports = mongoose.model("english", englishSchema )
