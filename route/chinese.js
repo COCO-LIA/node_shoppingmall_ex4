@@ -27,6 +27,25 @@ router.get("/zhongyu", (req, res) => {
 
 })
 
+//chinese 상세목록 불러오는 API
+router.get("/:chineseId", (req, res) => {
+
+    chineseModel
+        .findById(req.params.chineseId)
+        .then(item => {
+            res.json({
+                msg: "중국 상품 상세보기 " + item._id,
+                list: item
+            })
+        })
+        .catch(err => {
+            res.json({
+                msg: err.message
+            })
+        })
+})
+
+
 //chinese 등록하는 API
 router.post("/", (req, res) => {
 
