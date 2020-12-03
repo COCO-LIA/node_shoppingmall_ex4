@@ -59,6 +59,33 @@ router.post("/register", (req, res) => {
 // login API
 router.post("/login", (req, res) => {
 
+    //이메일 유무체크 - 패스워드 매칭 - 접속유저정보 뿌려주기
+    userModel
+        .findOne({email: req.body.em})
+        .then(user => {
+            if(!user) {
+                return res.json({
+                    msg: "등록되지 않은 이메일입니다. 선회원가입 "
+                })
+            } else {
+                bcrypt.compare(req.body.paw, user.password, (err, isMatch) => {
+
+                    if(err || isMatch === false) {
+                        return res.json({
+                            msg: "Auth failed(password 틀림)"
+                        })
+                    } else {
+                        res.json(user)
+                    }
+                })
+            }
+        })
+        .catch(err => {
+            res.json({
+                err: err.message
+            })
+        })
+
 })
 
 //2
