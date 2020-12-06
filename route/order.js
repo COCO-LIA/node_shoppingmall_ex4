@@ -2,7 +2,7 @@ const express = require("express")
 const router = express.Router()
 
 const orderModel = require('../model/order')
-
+const checkAuth = require('../middelware/check-auth')
 
 //API 생성하기
 
@@ -41,7 +41,7 @@ router.get("/", (req, res) => {
 })
 
 //상세 불러오는 API
-router.get("/:orderId", (req, res) => {
+router.get("/:orderId", checkAuth, (req, res) => {
 
     orderModel
         .findById(req.params.orderId)
@@ -70,7 +70,7 @@ router.get("/:orderId", (req, res) => {
 
 
 //order 등록하는 API
-router.post("/", (req, res) => {
+router.post("/", checkAuth, (req, res) => {
 
     const  orderInfo = new orderModel({
         chineselist: req.body.chid,
@@ -95,7 +95,7 @@ router.post("/", (req, res) => {
 
 
 //order 수정하는 API
-router.patch("/:orderId", (req, res) => {
+router.patch("/:orderId", checkAuth, (req, res) => {
 
     const updateOps = {}
     for (const ops of req.body) {
@@ -123,7 +123,7 @@ router.patch("/:orderId", (req, res) => {
 
 
 //order 삭제하는 API
-router.delete("/", (req, res) => {
+router.delete("/", checkAuth, (req, res) => {
 
     orderModel
         .deleteMany()

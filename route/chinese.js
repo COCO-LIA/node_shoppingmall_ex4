@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
+
 const chineseModel = require('../model/chinese')
+const checkAuth = require('../middelware/check-auth')
 
 
 // chinese 불러오는 API
@@ -39,7 +41,7 @@ router.get("/", (req, res) => {
 })
 
 //chinese 상세목록 불러오는 API
-router.get("/:chineseId", (req, res) => {
+router.get("/:chineseId", checkAuth, (req, res) => {
 
     chineseModel
         .findById(req.params.chineseId)
@@ -67,7 +69,7 @@ router.get("/:chineseId", (req, res) => {
 
 
 //chinese 등록하는 API
-router.post("/", (req, res) => {
+router.post("/", checkAuth, (req, res) => {
 
     // //사용자 입력값 설정
     // const chineseInfo = {
@@ -116,7 +118,7 @@ router.post("/", (req, res) => {
 
 
 //chinese 수정하는 API
-router.patch("/:chineseId", (req, res) =>{
+router.patch("/:chineseId", checkAuth, (req, res) =>{
     // res.json({
     //     message : "중국어 수정"
     // })
@@ -148,7 +150,7 @@ router.patch("/:chineseId", (req, res) =>{
 })
 
 //chinese 전체 삭제하는 API
-router.delete("/", (req, res) =>{
+router.delete("/", checkAuth, (req, res) =>{
     // res.json({
     //     message: "중국어 삭제"
     // })
@@ -173,7 +175,7 @@ router.delete("/", (req, res) =>{
 })
 
 //  부분삭제 API
-router.delete("/:chineseId", (req, res) =>{
+router.delete("/:chineseId", checkAuth, (req, res) =>{
     chineseModel
         .findByIdAndDelete(req.params.chineseId)
         .then(() => {
