@@ -73,12 +73,13 @@ exports.chinese_post_chinese = (req, res) => {
     //     message: "중국어 등록 ",
     //     chinese: chineseInfo
     // })
+
+    const { character, pingyin, means } = req.body
+
     const chineseInfo = new chineseModel({
-
-        character: req.body.chnch,
-        pingyin: req.body.chnpy,
-        means: req.body.chnmn
-
+        character,
+        pingyin,
+        means
     })
 
     chineseInfo

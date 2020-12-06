@@ -61,9 +61,11 @@ exports.order_get_order = (req, res) => {
 
 exports.order_post_order = (req, res) => {
 
+    const { chineselist,quantity } = req.body
+
     const  orderInfo = new orderModel({
-        chineselist: req.body.chid,
-        quantity: req.body.qty
+        chineselist
+        quantity
     })
 
     orderInfo
