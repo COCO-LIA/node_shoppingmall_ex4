@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a3fccd53-1292-4c3e-9e04-3d3c13f51140" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/middelware/check-auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/chinese.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/order.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/user.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/route/chinese.js" beforeDir="false" afterPath="$PROJECT_DIR$/route/chinese.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/route/order.js" beforeDir="false" afterPath="$PROJECT_DIR$/route/order.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/route/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/route/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +54,7 @@
       <workItem from="1606976756603" duration="4306000" />
       <workItem from="1606984157001" duration="9125000" />
       <workItem from="1607264868051" duration="1390000" />
-      <workItem from="1607266331300" duration="315000" />
+      <workItem from="1607266331300" duration="3496000" />
     </task>
     <servers />
   </component>
