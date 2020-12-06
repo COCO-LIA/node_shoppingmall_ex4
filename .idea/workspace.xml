@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a3fccd53-1292-4c3e-9e04-3d3c13f51140" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/controller/chinese.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/order.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/user.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middelware/database.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/chinese.js" beforeDir="false" afterPath="$PROJECT_DIR$/route/chinese.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/order.js" beforeDir="false" afterPath="$PROJECT_DIR$/route/order.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/route/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middelware/check-auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/middelware/check-auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,11 +53,17 @@
       <workItem from="1606976756603" duration="4306000" />
       <workItem from="1606984157001" duration="9125000" />
       <workItem from="1607264868051" duration="1390000" />
-      <workItem from="1607266331300" duration="3496000" />
+      <workItem from="1607266331300" duration="4413000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="586" y="347" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1607274740830">
+      <screen x="0" y="23" width="1792" height="1053" />
+    </state>
+    <state x="586" y="347" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1792.1053@0.23.1792.1053" timestamp="1607274740830" />
   </component>
 </project>
